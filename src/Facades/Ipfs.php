@@ -4,7 +4,7 @@ namespace Fliq\IpfsLaravel\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class IpfsLaravel extends Facade
+class Ipfs extends Facade
 {
     /**
      * Get the registered name of the component.
@@ -13,6 +13,6 @@ class IpfsLaravel extends Facade
      */
     protected static function getFacadeAccessor(): string
     {
-        return 'ipfs-laravel';
+        return 'ipfs';
     }
 }

@@ -1,42 +1,52 @@
 {
-    "name": "fliq/ipfs-laravel",
-    "description": ":package_description",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Author Name",
-            "email": "author@email.com",
-            "homepage": "http://author.com"
-        }
-    ],
-    "homepage": "https://github.com/fliq/ipfs-laravel",
-    "keywords": ["Laravel", "IpfsLaravel"],
-    "require": {
-        "illuminate/support": "~9",
-        "fliq/ipfs": "^0.1.0"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "~9.0",
-        "orchestra/testbench": "~7"
-    },
-    "autoload": {
-        "psr-4": {
-            "Fliq\\IpfsLaravel\\": "src/"
-        }
-    },
-    "autoload-dev": {
-        "psr-4": {
-            "Fliq\\IpfsLaravel\\Tests\\": "tests"
-        }
-    },
-    "extra": {
-        "laravel": {
-            "providers": [
-                "Fliq\\IpfsLaravel\\IpfsLaravelServiceProvider"
-            ],
-            "aliases": {
-                "IpfsLaravel": "Fliq\\IpfsLaravel\\Facades\\IpfsLaravel"
-            }
-        }
+  "name": "fliq/ipfs-laravel",
+  "description": ":package_description",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Christian Pav",
+      "email": "_@christians.email",
+      "homepage": "http://fliqnft.com"
     }
+  ],
+  "homepage": "https://github.com/fliq/ipfs-laravel",
+  "keywords": [
+    "Laravel",
+    "IpfsLaravel",
+    "Web3"
+  ],
+  "require": {
+    "illuminate/support": "~9",
+    "fliq/ipfs": "v0.1.1"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "~9.0",
+    "orchestra/testbench": "~7",
+    "pestphp/pest": "^1.21"
+  },
+  "autoload": {
+    "psr-4": {
+      "Fliq\\IpfsLaravel\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Fliq\\IpfsLaravel\\Tests\\": "tests"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Fliq\\IpfsLaravel\\IpfsServiceProvider"
+      ],
+      "aliases": {
+        "Ipfs": "Fliq\\IpfsLaravel\\Facades\\Ipfs"
+      }
+    }
+  },
+  "config": {
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  }
 }
