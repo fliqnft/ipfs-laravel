@@ -7,6 +7,8 @@ use GuzzleHttp\Promise\PromiseInterface;
 
 class Ipfs
 {
+    use SyncByDefault;
+
     protected Fliq\Ipfs\Ipfs $ipfs;
 
     public function __construct(array $config)
@@ -24,20 +26,13 @@ class Ipfs
         return collect($this->ipfs->add($resources, $options)->wait());
     }
 
-    public function __call(string $name, array $arguments)
+    public function url($cid) : string
     {
-        $promise = $this->ipfs->{$name}(...$arguments);
-
-        if ($promise instanceof PromiseInterface) {
-            return $promise->wait();
-        }
-
-        return $promise;
-    }
-
-    public function async() : Fliq\Ipfs\Ipfs
-    {
-        return $this->ipfs;
+        return (new Fliq\Ipfs\Gateway(
+            config('ipfs.gateway.host'),
+            config('ipfs.gateway.protocol'),
+            config('ipfs.gateway.url_mode'),
+        ))->getUrl($cid);
     }
 
 }

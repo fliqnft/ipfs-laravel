@@ -2,8 +2,12 @@
 
 namespace Fliq\IpfsLaravel\Facades;
 
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
+/**
+ * @method static Collection add(string|resource|array $resources, array $options)
+ */
 class Ipfs extends Facade
 {
     /**
