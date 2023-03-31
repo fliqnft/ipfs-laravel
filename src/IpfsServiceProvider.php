@@ -11,7 +11,7 @@ class IpfsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot() : void
+    public function boot(): void
     {
         if ($this->app->runningInConsole()) {
             $this->bootForConsole();
@@ -23,13 +23,13 @@ class IpfsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register() : void
+    public function register(): void
     {
-        $this->mergeConfigFrom(__DIR__ . '/../config/ipfs.php', 'ipfs');
+        $this->mergeConfigFrom(__DIR__.'/../config/ipfs.php', 'ipfs');
 
         $this->app->singleton('ipfs', function ($app) {
             return match (config('ipfs.facade_as')) {
-                'api'     => new Ipfs(config('ipfs.api')),
+                'api' => new Ipfs(config('ipfs.api')),
                 'gateway' => new IpfsGateway(config('ipfs.gateway')),
             };
         });
@@ -50,10 +50,10 @@ class IpfsServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    protected function bootForConsole() : void
+    protected function bootForConsole(): void
     {
         $this->publishes([
-            __DIR__ . '/../config/ipfs.php' => config_path('ipfs.php'),
+            __DIR__.'/../config/ipfs.php' => config_path('ipfs.php'),
         ], 'ipfs.config');
     }
 }

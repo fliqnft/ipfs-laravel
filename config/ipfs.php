@@ -12,7 +12,6 @@ return [
     |
     */
 
-
     /*
     |-----------------------------------------------------------------------------
     | Api
@@ -29,7 +28,6 @@ return [
         'port' => env('IPFS_PORT', '8080'),
         'mode' => env('IPFS_API_MODE', 'gateway'),
     ],
-
 
     'gateway' => [
         'host' => env('IPFS_HOST', 'localhost:8080'),

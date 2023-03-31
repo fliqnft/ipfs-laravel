@@ -16,7 +16,7 @@
     "Web3"
   ],
   "require": {
-    "illuminate/support": "~9",
+    "illuminate/support": "~10",
     "fliq/ipfs": "dev-master"
   },
   "require-dev": {

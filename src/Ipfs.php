@@ -3,7 +3,6 @@
 namespace Fliq\IpfsLaravel;
 
 use Fliq;
-use GuzzleHttp\Promise\PromiseInterface;
 
 class Ipfs
 {
@@ -26,7 +25,7 @@ class Ipfs
         return collect($this->ipfs->add($resources, $options)->wait());
     }
 
-    public function url($cid) : string
+    public function url($cid): string
     {
         return (new Fliq\Ipfs\Gateway(
             config('ipfs.gateway.host'),
@@ -34,5 +33,4 @@ class Ipfs
             config('ipfs.gateway.url_mode'),
         ))->getUrl($cid);
     }
-
 }
